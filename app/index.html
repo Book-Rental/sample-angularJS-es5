@@ -1,0 +1,33 @@
+<!doctype html>
+<html>
+
+<head>
+	<meta charset="utf-8">
+	<link href="css/vendor.min.css" rel="stylesheet" />
+	<script src="js/vendor.min.js"></script>
+	<link href="css/bundle.min.css" rel="stylesheet" />
+	<script src="js/bundle.min.js"></script>
+</head>
+
+<body ng-app="app" ng-controller="IndexController as IndexCtrl">
+
+	<div>
+		<alert-modal modal-api="IndexCtrl.alertModalApi"></alert-modal>
+		<!-- header -->
+		<div ng-include="'template/html/header.html'">
+		</div>
+		<!-- /Header -->
+		<span us-spinner spinner-key="loading-spinner"></span>
+		<!-- Main -->
+		<div class="container" style="padding-top: 130px;">
+			<div ng-include="'common/error/error.html'" ng-if="error"></div>
+			<div ng-view ng-if="!error"></div>
+		</div>
+		<!--/main-->
+	</div>
+
+	<div ng-include="'template/html/footer.html'"></div>
+
+</body>
+
+</html>

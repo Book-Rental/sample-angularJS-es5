@@ -1,0 +1,46 @@
+<form id="formRental" ng-submit="saveRental()">
+
+    <div class="row">
+        <div class="form-group required col col-md-6" ng-class="{'has-error': errors.Name }">
+            <label class="control-label col-md-4" for="usersSelect"> Renter </label>
+            <div class="col-md-8">
+                <select class="form-control" name="usersSelect" id="usersSelect" ng-options="user.firstName for user in users track by user.id"
+                    ng-model="rental.user" ng-required="true" ng-disabled="mode == 'view'"></select>
+            </div>
+        </div>
+        <div class="form-group required col col-md-6" ng-class="{'has-error': errors.Name }">
+            <label class="control-label col-md-4" for="booksSelect"> Book </label>
+            <div class="col-md-8">
+                <select class="form-control" name="booksSelect" id="booksSelect" ng-options="book.title for book in books track by book.id"
+                    ng-model="rental.book" ng-required="true" ng-disabled="mode == 'view'"></select>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="form-group required col col-md-6">
+            <label class="control-label col-md-4" for="startDate">Start Date</label>
+            <div class="input-group date col col-md-8" data-provide="datepicker" data-date-format="dd/mm/yyyy">
+                <div>
+                    <input id="startDate" type="text" class="form-control" ng-model="rental.startDate" placeholder="Enter Start Date" autocomplete="off"
+                        ng-required="true" ng-disabled="mode == 'view'">
+                </div>
+                <div class="input-group-addon">
+                    <span class="glyphicon glyphicon-th"></span>
+                </div>
+            </div>
+        </div>
+        <div class="form-group required col col-md-6">
+                <label class="control-label col-md-4" for="endDate">End Date</label>
+                <div class="input-group date col col-md-8" data-provide="datepicker" data-date-format="dd/mm/yyyy">
+                    <div>
+                        <input id="endDate" type="text" class="form-control" ng-model="rental.endDate" placeholder="Enter End Date"
+                            autocomplete="off" ng-required="true" ng-disabled="mode == 'view'">
+                    </div>
+                    <div class="input-group-addon">
+                        <span class="glyphicon glyphicon-th"></span>
+                    </div>
+                </div>
+        </div>
+    </div>
+
+</form>

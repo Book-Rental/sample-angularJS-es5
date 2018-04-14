@@ -1,0 +1,41 @@
+<form id="bookForm" ng-submit="saveBook()">
+
+    <div class="row">
+        <div class="form-group required col col-md-6" ng-class="{'has-error': errors.Name }">
+            <label class="control-label col-md-4" for="title">Title</label>
+            <div class="col-md-8">
+                <input type="text" class="form-control" id="title" placeholder="Enter title" ng-model="book.title" autocomplete="off" 
+                ng-required="true"  ng-disabled="mode == 'view'">
+            </div>
+        </div>
+        <div class="form-group required col col-md-6">
+            <label class="control-label col-md-4" for="author">Author</label>
+            <div class="col-md-8">
+                <input type="text" class="form-control" id="author" placeholder="Enter author" ng-model="book.author" autocomplete="off"
+                    ng-required="true" ng-disabled="mode == 'view'">
+            </div>
+        </div>
+    </div>
+    
+    <div class="row">
+        <div class="form-group required col col-md-6">
+            <label class="control-label col-md-4" for="pubDate">Publication Date</label>
+            <div class="input-group date col col-md-8" data-provide="datepicker" data-date-format="dd/mm/yyyy">
+                <div>
+                    <input id="pubDate" type="text" class="form-control" ng-model="book.publicationDate" placeholder="Enter Publication Date"
+                        autocomplete="off" ng-required="true" ng-disabled="mode == 'view'">
+                </div>
+                <div class="input-group-addon">
+                    <span class="glyphicon glyphicon-th"></span>
+                </div>
+            </div>
+        </div>
+        <div class="form-group required col col-md-6">
+            <label class="control-label col-md-4" for="isAvailable">Is Available</label>
+            <div class="col-md-8">
+                <input type="checkbox" class="checkbox" id="isAvailable" ng-model="book.isAvailable" ng-disabled="mode == 'view'">
+            </div>
+        </div>
+    </div>
+
+</form>
